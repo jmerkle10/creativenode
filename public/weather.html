@@ -15,9 +15,10 @@ font size : 200%;
       body {
         height:100%;
         width:100%;
-        background-image:url(https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg);/*your background image*/
-        background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
-        background-size:cover;/*this sets the image to fullscreen covering the whole screen*/
+        background-color: dark-gray;
+        /*background-image:url(https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg);/*your background image*/
+        /*background-repeat:no-repeat;/*we want to have one single image not a repeated one*/*/
+        /*background-size:contain;/*this sets the image to fullscreen covering the whole screen*/*/*/
        /*css hack for ie*/
        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(url="https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg"),sizingMethod='scale');
        -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(url="https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg"),sizingMethod='scale')";
@@ -28,34 +29,36 @@ font size : 200%;
 
 <script>
 $(document).ready(function() {
-$( "#wordBut" ).click(function(e) {
-e.preventDefault();
- var url = "/imageout?q=" + $("#wordField").val();
-$.getJSON(url,function(data) {
-    var everything;
-    everything = "<ul>";
-console.log(data);
-   // $.each(data, function(i,item) {
-      everything += "<li> "+data[0].defenition;
-//   console.log(data[0].defenition);
-    everything += "</ul>";
-    $("#definition").html(everything);
-  })
-  .done(function() { console.log('getJSON request succeeded!'); })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    console.log('getJSON request failed! ' + textStatus);
-    console.log("incoming "+jqXHR.responseText);
-  })
-  .always(function() { console.log('getJSON request ended!');
+  $( "#wordBut" ).click(function(e) {
+  e.preventDefault();
+  var url = "/imageout?q=" + $("#wordField").val();
+  var myWolfram = "<img src=\"" + url + "\">";
+    //,function(data) {
+   //    var everything;
+   //    everything = "<ul>";
+   //    console.log(data);
+   //    $.each(data, function(i,item) {
+   //      everything += "<li><img "+data[i] + ">";
+   //    });
+   //    everything += "</ul>";
+   //    $("#definition").append(everything);
+   //  })
+   //  .done(function() { console.log('getJSON request succeeded!'); })
+   //  .fail(function(jqXHR, textStatus, errorThrown) {
+   //    console.log('getJSON request failed! ' + textStatus);
+   //    console.log("incoming "+jqXHR.responseText);
+   //  })
+   //  .always(function() { console.log('getJSON request ended!');
+   //  });
+   $("#definition").html(myWolfram);
   });
-});
 });
 </script>
 <form>
 <h1>
-Word <input type="text" id="wordField" value=""><br>
-Definition: <span id="definition">Empty</span>
-<input type="submit" id ="wordBut" value="Submit Word"><br>
+Search Wolfram: <input type="text" id="wordField" value=""><br>
+Result: <span id="definition"></span>
+<input type="submit" id ="wordBut" value="Submit Query"><br>
 
 
 </form>
