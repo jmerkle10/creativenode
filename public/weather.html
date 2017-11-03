@@ -15,10 +15,10 @@ font size : 200%;
       body {
         height:100%;
         width:100%;
-        background-color: dark-gray;
-        /*background-image:url(https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg);/*your background image*/
-        /*background-repeat:no-repeat;/*we want to have one single image not a repeated one*/*/
-        /*background-size:contain;/*this sets the image to fullscreen covering the whole screen*/*/*/
+        /*background-color: dark-gray;*/
+        background-image:url(https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg);/*your background image
+        background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
+        background-size:contain;/*this sets the image to fullscreen covering the whole screen*/*/
        /*css hack for ie*/
        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(url="https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg"),sizingMethod='scale');
        -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(url="https://photos.smugmug.com/StarTrails/i-fJVzGwN/0/9ca92646/L/GreatBasinPerseids2015-L.jpg"),sizingMethod='scale')";
@@ -33,24 +33,7 @@ $(document).ready(function() {
   e.preventDefault();
   var url = "/imageout?q=" + $("#wordField").val();
   var myWolfram = "<img src=\"" + url + "\">";
-    //,function(data) {
-   //    var everything;
-   //    everything = "<ul>";
-   //    console.log(data);
-   //    $.each(data, function(i,item) {
-   //      everything += "<li><img "+data[i] + ">";
-   //    });
-   //    everything += "</ul>";
-   //    $("#definition").append(everything);
-   //  })
-   //  .done(function() { console.log('getJSON request succeeded!'); })
-   //  .fail(function(jqXHR, textStatus, errorThrown) {
-   //    console.log('getJSON request failed! ' + textStatus);
-   //    console.log("incoming "+jqXHR.responseText);
-   //  })
-   //  .always(function() { console.log('getJSON request ended!');
-   //  });
-   $("#definition").html(myWolfram);
+  $("#definition").html(myWolfram);
   });
 });
 </script>
