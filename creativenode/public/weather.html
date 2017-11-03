@@ -28,28 +28,6 @@ font size : 200%;
 
 <script>
 $(document).ready(function() {
-$( "#cityField" ).keyup(function() {
- var url = "/getcity?q="+$("#cityField").val();
-$.getJSON(url,function(data) {
-    var everything;
-    everything = "<ul>";
-    $.each(data, function(i,item) {
-      everything += "<li> "+data[i].city;
-    });
-    everything += "</ul>";
-    $("#txtHint").html(everything);
-  })
-  .done(function() { console.log('getJSON request succeeded!'); })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    console.log('getJSON request failed! ' + textStatus);
-    console.log("incoming "+jqXHR.responseText);
-  })
-  .always(function() { console.log('getJSON request ended!');
-  });
-});
-
-
-
 $( "#wordBut" ).click(function(e) {
 e.preventDefault();
  var url = "/word?q=" + $("#wordField").val();
@@ -72,14 +50,8 @@ console.log(data);
   });
 });
 });
-
-
-
 </script>
 <form>
-<h1>
-Enter A Utah City: <input type="text" id="cityField" value=""><br>
-Suggestion: <span id="txtHint">Empty</span>
 <h1>
 Word <input type="text" id="wordField" value=""><br>
 Definition: <span id="definition">Empty</span>
