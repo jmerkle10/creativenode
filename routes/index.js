@@ -22,20 +22,13 @@ var jsonresult = [];
 	if(result != -1){
 	console.log(cities[i]);
 	jsonresult.push({city:cities[i]});
-	}	
-	}	
+	}
+	}
 	res.status(200).json(jsonresult);
 
 });
 
   });
-
-router.get('/word',function(req,res,next){
-     var owl = "https://owlbot.info/api/v1/dictionary/";
-    owl += req.query.q;
-    console.log("in getword");
-    request(owl).pipe(res);
-});
 
 
 
