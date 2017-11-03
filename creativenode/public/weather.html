@@ -30,7 +30,7 @@ font size : 200%;
 $(document).ready(function() {
 $( "#wordBut" ).click(function(e) {
 e.preventDefault();
- var url = "/word?q=" + $("#wordField").val();
+ var url = "/imageout?q=" + $("#wordField").val();
 $.getJSON(url,function(data) {
     var everything;
     everything = "<ul>";
